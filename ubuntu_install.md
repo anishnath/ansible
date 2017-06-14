@@ -67,3 +67,13 @@ ansible 2.2.1.0
   configured module search path = Default w/o overrides
   
 ```
+
+## Alternate Installation through apt-get repository
+
+Alternatively the same thing can be Installed using the `ppa:ansible/ansible` 
+
+```
+sudo apt-add-repository -y ppa:ansible/ansible
+bash ~# sudo apt-get update
+bash ~# sudo apt-get install -y ansible
+```
