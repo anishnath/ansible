@@ -29,3 +29,12 @@ Check the pip versionn
 bash ~#  pip -V
 pip 9.0.1 from /usr/lib/python2.6/site-packages (python 2.6)
 ```
+
+# Install Ansible Packges package with specfic Versions
+
+```
+bash ~# sudo yum -y install python-pip
+bash ~# sudo pip install pip –upgrade
+bash ~# sudo pip install ansible==2.2.1.0
+```
+
