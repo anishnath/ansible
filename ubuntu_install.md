@@ -1,5 +1,24 @@
 # Ansible Installation on Ubuntu
 
+## Pre-requistie Install python and pip
+
+Installing pip
+
+To install pip, securely download [get-pip.py] (https://bootstrap.pypa.io/get-pip.py)
+
+```
+bash ~#  wget https://bootstrap.pypa.io/get-pip.py
+```
+
+Then run the following:
+```
+bash ~# python get-pip.py
+```
+Check the pip version
+```
+bash ~#  pip -V
+pip 9.0.1 from /usr/lib/python2.6/site-packages (python 2.6)
+```
 ## Install Common Dependencies
 
 ```
@@ -42,7 +61,7 @@ Successfully installed MarkupSafe-1.0 ansible-2.2.1.0 cryptography-1.9 jinja2-2.
 ## Verify Ansible Installation
 
 ```
-root@ip-172-30-4-205:/home/ubuntu# ansible --version
+bash ~# ansible --version
 ansible 2.2.1.0
   config file = 
   configured module search path = Default w/o overrides
