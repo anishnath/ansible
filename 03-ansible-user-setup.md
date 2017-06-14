@@ -57,7 +57,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAgEApeDUYGwaMfHd7/Zo0nzHA69uF/f99BYktwp82qA8+osp
 
 ```
 
-From the Ansible Controller run the following command for each target node:
+__Or Alternatilvely from the Ansible Controller run the following command for each target node__
 ```
 [ansible@controller-node] ssh-copy-id ansible@hostname
 ```
