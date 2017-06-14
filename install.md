@@ -1,5 +1,14 @@
-# Ansible Installation on Redhat
+# Ansible Installation on Redhat/Centos 6 & 7
 
+#### If you're on RedHat/CentOS 6:
+
+```
+bash ~#  rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+```
+#### If you're on RedHat/CentOS 7 :   
+```
+bash ~#  rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+```
 ## Pre-requistie Install python and pip
 
 ### Installing pip
