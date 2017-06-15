@@ -108,8 +108,8 @@ bash ~#  yum install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest
 **Install Ansible**
 ```
 bash ~#  yum install -y ansible
-
-#Install on Fedora
+```
+# Install on Fedora
 
 ```
 bash ~#  yum install -y ansible
