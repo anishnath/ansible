@@ -5,10 +5,10 @@
   - include_vars: users.yml
 
   - name: Create users with home directory
-    user: name={{ item.username }} shell=/bin/bash createhome=yes comment='create with ansible'
+    user: name={{ item.username }} shell=/bin/bash createhome=yes comment='Created by Ansible'
     with_items: '{{users}}'
   
- - name: Setup | authorized key upload
+  - name: Setup | authorized key upload
    authorized_key: user={{ item.username }}
       key="{{ lookup('file', 'pubkeys/{{ item.username }}.pub') }}"
     with_items: '{{users}}'  
