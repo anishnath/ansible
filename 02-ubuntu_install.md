@@ -1,5 +1,11 @@
 # Ansible Installation on Ubuntu
 
+Anisble Installtion can be Done in two ways 
+
+1. PIP Based
+2. Through apt-get repository
+
+# PIP Based Installation
 ## Pre-requistie Install python and pip
 
 Installing pip
