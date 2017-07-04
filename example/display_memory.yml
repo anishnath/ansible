@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Free Memory of the VM
+      command: free -m
+      register: out
+
+    - debug: var=out.stdout_lines
