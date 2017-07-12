@@ -1,0 +1,10 @@
+---
+- hosts: all
+  user: ansible
+  become: true
+  tasks:
+  - include_vars: deleteusers.yml
+  
+  - name: delete users 
+    user: name={{ item.username }} state=absent remove=yes
+    with_items: '{{users}}'
