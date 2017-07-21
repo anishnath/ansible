@@ -1,0 +1,7 @@
+---
+- include_vars: text.yml
+
+- name: Copy the conent in the server Securely
+  copy:
+    content="{{my_content}}"
+    dest=/tmp/mycontent.txt
