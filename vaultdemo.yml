@@ -1,0 +1,6 @@
+# To run this File
+# ansible-playbook  vaultdemo.yml --ask-vault-pass
+---
+- hosts: local
+  roles:
+    - { role: secretcontent }
