@@ -1,0 +1,35 @@
+---
+- include: install.yml
+
+- name: Enable ufw
+  ufw: state=enabled policy=allow
+
+- name: Disable default in
+  ufw: direction=incoming policy=deny
+
+- name: Allow ssh in
+  ufw: rule=limit name=OpenSSH
+
+- name: 5432  is open
+  ufw: rule=allow port=5432 proto=tcp
+
+- name: 443 is open
+  ufw: rule=allow port=443 proto=tcp
+
+- name: Enable Logging & restart ufw
+  ufw: logging=on
+  notify:
+   - restart ufw
+
+- name: Allow all access from RFC1918 networks to this host
+  ufw: rule=allow src='{{ item }}'
+  with_items:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+    
+- name: View ufw Rules
+  command: ufw status 
+  register: out
+  
+- debug: var=out.stdout_lines
