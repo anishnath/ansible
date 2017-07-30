@@ -1,0 +1,9 @@
+---
+  - include: debian-ufw.yml
+    when: ansible_os_family == 'Debian'
+
+  - include: centos7-firewalld.yml
+    when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'
+
+  - include: rhel6-iptables.yml
+    when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6'
