@@ -1,0 +1,12 @@
+---
+
+- include: install.yml
+
+- name: Enable firewalld
+  service: name=firewalld state=started enabled=yes
+
+- name: Set dmz as default policy
+  command: firewall-cmd --set-default-zone=dmz
+
+- name: Allow http/https
+  command: firewall-cmd --zone=dmz --permanent --add-service=http --add-service=https
