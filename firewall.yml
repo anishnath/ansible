@@ -1,0 +1,8 @@
+# To Run this Playbook Issue the command
+# ansible-playbook firewall.yml 
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  roles:
+    - { role: firewall }
