@@ -1,0 +1,12 @@
+---
+  - include: install.yml
+
+  - name: Setting up the  SELinux policy and state
+    selinux: policy={{ selinuxpolicy }} state={{ selinuxstate }}
+    when: ansible_os_family == 'RedHat'
+
+  - name: sestatus
+    command: sestatus
+    register: out
+    
+  - debug: var=out.stdout_lines
