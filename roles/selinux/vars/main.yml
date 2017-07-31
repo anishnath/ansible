@@ -1,0 +1,2 @@
+selinuxpolicy: targeted
+selinuxstate: enforcing
