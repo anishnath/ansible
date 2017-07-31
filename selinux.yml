@@ -1,0 +1,9 @@
+# To Run this Playbook Issue the command
+#Author Anish Nath
+# ansible-playbook selinux.yml 
+---
+- hosts: web
+  become: yes
+  gather_facts: yes
+  roles:
+    - { role: selinux }
