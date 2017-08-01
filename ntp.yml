@@ -1,0 +1,9 @@
+# To Run this Playbook Issue the command
+# ansible-playbook ntp.yml 
+# Author Anish Nath
+---
+- hosts: local
+  become: yes
+  gather_facts: yes
+  roles:
+    - { role: ntp }
