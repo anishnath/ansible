@@ -10,7 +10,7 @@
     - restart ntp
 
   - name: init.d changes Enabling the service
-    service: name=ntp state=started enabled=yes pattern='/ntpd' 
+    service: name='{{ ntpd }}' state=started enabled=yes pattern='/ntp' 
 
   - name: View the NTP Settings 
     command: cat /etc/ntp.conf

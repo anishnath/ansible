@@ -2,7 +2,7 @@
 # ansible-playbook ntp.yml 
 # Author Anish Nath
 ---
-- hosts: local
+- hosts: all
   become: yes
   gather_facts: yes
   roles:
