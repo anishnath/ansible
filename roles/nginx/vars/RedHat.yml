@@ -1,0 +1,6 @@
+---
+nginx_init_name: "nginx"
+nginx_user: "www-data"
+httpd_init_name: "httpd"
+nginx_group: "www-data"
+nginx_install_home: "/etc/nginx"

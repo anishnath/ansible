@@ -1,0 +1,39 @@
+---
+
+- name: Load the variables
+  include_vars: '{{ ansible_os_family }}.yml'
+
+- name: NGINX | Installing NGINX repo rpm
+  yum:
+    name: http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'
+
+- name: NGINX | Installing NGINX repo rpm el7 Architecture
+  yum:
+    name: http://nginx.org/packages/rhel/6/noarch/RPMS/nginx-release-rhel-6-0.el6.ngx.noarch.rpm
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6'
+
+- name: NGINX | Installing NGINX
+  yum:
+    name: nginx
+    state: latest
+
+
+- name: Determine if selinux is enabled
+  command: getenforce
+  register: getenforce
+  ignore_errors: true
+  changed_when: false
+
+- name: Create Nginx User group
+  group: name='{{nginx_group}}' state=present
+
+- name : Creating Nginx Users and Group
+  user: name='{{ nginx_user }}' group='{{ nginx_group }}'
+
+- name: Configure the nginx  settings directory.
+  file: path=/etc/nginx state=directory owner={{nginx_user}} group={{nginx_group}} mode=0755 recurse=yes
+
+- name: Configure the Nginx system user's home directory.
+  file: path={{nginx_install_home}} state=directory owner={{nginx_user}} group={{nginx_group}} mode=0755
+

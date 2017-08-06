@@ -1,0 +1,5 @@
+---
+nginx_home: '/var/www/html'
+nginx_https_port: '443'
+nginx_disable_https: 'false'
+nginx_http_port: '80'
