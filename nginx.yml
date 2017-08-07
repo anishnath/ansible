@@ -1,6 +1,6 @@
 # To Run this Playbook Issue the command
 #Author Anish Nath
-# ansible-playbook ssh.yml 
+# ansible-playbook nginx.yml 
 ---
 - hosts: web
   become: yes
