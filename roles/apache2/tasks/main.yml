@@ -1,54 +1,27 @@
 ---
 - include: install.yml
+- include config.ssl
 
 - name: Load the variables
   include_vars: '{{ ansible_os_family }}.yml' 
 
-- name: apache2 | Starting apache2
-  service:
-    name: httpd
-    state: started
-
-- name: Create apache2 SSL Directory 
-  file:
-    path: /etc/apache2/ssl
-    state: directory
-    mode: 0755
-
-- name: create self signed SSL certificates
-  command: openssl req -x509 -nodes -sha256 -days 99999 -newkey rsa:2048 -keyout /etc/apache2/ssl/server.key -out /etc/apache2/ssl/server.cert -subj "/C=US/ST=NC/L=youtube/O=8gwifi/CN=zariga.com"
-  args:
-    creates: /etc/apache2/ssl/server.cert
+- name : Enable Mod_Rewrite
+  apache2_module: name=rewrite state=present
   notify:
-    - restart apache2
+          - restart apache2
 
-- name: Configure file permissions on certificate file.
-  file:
-    group: '{{ apache2_group }}'
-    mode: 0600
-    path: /etc/apache2/ssl/server.cert
-    owner: '{{ apache2_user }}'
-  notify:
-    - restart apache2
 
-- name: Configure file permissions on key file.
-  file:
-    group: '{{ apache2_group }}'
-    mode: 0600
-    path: /etc/apache2/ssl/server.key
-    owner: '{{ apache2_user }}'
-  notify:
-    - restart apache2
 
-- name: Install apache2.conf
-  template:
-    src: apache2.conf
-    dest: '/etc/apache2/apache2.conf'
-    force: True
-    owner: '{{ apache2_user }}'
-    group: '{{ apache2_group }}'
-  notify:
-    - restart apache2
+#- name: Install apache2.conf
+#  template:
+#    src: apache2.conf
+#    dest: '/etc/apache2/apache2.conf'
+#    force: True
+#    owner: '{{ apache2_user }}'
+#    group: '{{ apache2_group }}'
+#  notify:
+#    - restart apache2
+
 
 - name: start apache2 and configure to startup automatically
   service:

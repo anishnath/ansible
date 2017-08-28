@@ -1,0 +1,43 @@
+---
+
+
+- name: Load the variables
+  include_vars: '{{ ansible_os_family }}.yml'
+
+- name: httpd | Starting apache
+  service:
+    name: httpd
+    state: started
+
+- name: Create httpd SSL Directory
+  file:
+    path: /etc/apache2/ssl
+    state: directory
+    mode: 0755
+
+- name: create self signed SSL certificates
+  command: openssl req -x509 -nodes -sha256 -days 99999 -newkey rsa:2048 -keyout /etc/apache2/ssl/server.key -out /etc/apache2/ssl/server.cert -subj "/C=US/ST=NC/L=youtube/O=8gwifi/CN=zariga.com"
+  args:
+    creates: /etc/apache2/ssl/server.cert
+  notify:
+    - restart apache2
+
+- name: Configure file permissions on certificate file.
+  file:
+    group: '{{ apache2_group }}'
+    mode: 0600
+    path: /etc/apache2/ssl/server.cert
+    owner: '{{ apache2_user }}'
+  notify:
+    - restart apache2
+
+- name: Configure file permissions on key file.
+  file:
+    group: '{{ apache2_group }}'
+    mode: 0600
+    path: /etc/apache2/ssl/server.key
+    owner: '{{ apache2_user }}'
+  notify:
+    - restart apache2
+
+
