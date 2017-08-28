@@ -16,7 +16,7 @@
     mode: 0755
 
 - name: create self signed SSL certificates
-  command: openssl req -x509 -nodes -sha256 -days 99999 -newkey rsa:2048 -keyout /etc/httpd/ssl/server.key -out /etc/apache2/ssl/server.cert -subj "/C=US/ST=NC/L=youtube/O=8gwifi/CN=zariga.com"
+  command: openssl req -x509 -nodes -sha256 -days 99999 -newkey rsa:2048 -keyout /etc/httpd/ssl/server.key -out /etc/httpd/ssl/server.cert -subj "/C=US/ST=NC/L=youtube/O=8gwifi/CN=zariga.com"
   args:
     creates: '{{ apache2_install_home }}/ssl/server.cert'
   notify:
