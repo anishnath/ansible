@@ -1,7 +1,19 @@
 ---
 users:
   - username: user1
-    use_sudo: no
+    use_sudo: yes
 
   - username: user2
     use_sudo: yes
+
+  - username: user3
+    use_sudo: yes
+
+  - username: user4
+    use_sudo: no
+
+  - username: user5
+    use_sudo: no
+
+  - username: user6
+    use_sudo: no
