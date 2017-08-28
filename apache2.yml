@@ -1,0 +1,9 @@
+# To Run this Playbook Issue the command
+#Author Anish Nath
+# ansible-playbook ssh.yml 
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  roles:
+    - { role: apache2 }
