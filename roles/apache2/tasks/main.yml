@@ -24,6 +24,14 @@
   with_items: "{{ apache2_ports_configuration }}"
   notify: restart apache2
 
+- name: Create httpd Site Directory
+  file:
+    path: '{{ apache2_site_dir }}'
+    state: directory
+    owner: '{{ apache2_user }}'
+    group: '{{ apache2_user }}'
+    mode: 0755
+
 - name: Add apache vhosts configuration.
   template:
     src: "httpd.conf"

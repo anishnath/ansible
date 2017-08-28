@@ -10,3 +10,4 @@ apache2_listen_ip: "*"
 apache2_listen_port: 80
 apache2_listen_port_ssl: 4443
 apache2_conf_path: /etc/httpd/conf.d
+apache2_site_dir: /var/www/html
