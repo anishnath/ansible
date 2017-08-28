@@ -39,7 +39,6 @@
     group: '{{ apache2_user }}'
     mode: 0644
   notify: restart apache2
-  when: apache_create_vhosts
 
 
 - name: start apache2 and configure to startup automatically
