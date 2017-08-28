@@ -1,7 +1,6 @@
 ---
-apache2_init_name: "httpd"
-apache2_user: "www-data"
-httpd_init_name: "httpd"
-apache2_group: "www-data"
-apache2_install_home: "/etc/httpd"
-apache2_install_home_ssl: "/etc/httpd/ssl"
+apache2_ports_configuration:
+  - regexp: "^Listen "
+    line: "Listen {{ apache2_listen_port_ssl }}"
+  - regexp: "^#?NameVirtualHost "
+    line: "NameVirtualHost {{ apache2_listen_ip }}:{{ apache2_listen_port_ssl }}"

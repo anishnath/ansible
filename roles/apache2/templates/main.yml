@@ -1,5 +1,0 @@
----
-- name: restart nginx
-  service:
-    name: "{{ apache2_init_name }}"
-    state: restarted
