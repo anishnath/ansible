@@ -1,0 +1,7 @@
+---
+users:
+  - username: user1
+    use_sudo: no
+
+  - username: user2
+    use_sudo: yes
