@@ -1,5 +1,5 @@
 ---
-apache2_init_name: "nginx"
+apache2_init_name: "httpd"
 apache2_user: "www-data"
 httpd_init_name: "httpd"
 apache2_group: "www-data"

@@ -5,7 +5,7 @@
 
 - name: apache2 | Installing apache2
   yum:
-    name: apache2
+    name: httpd
     state: latest
   when: ansible_os_family == 'RedHat'
 

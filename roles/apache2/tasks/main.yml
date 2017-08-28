@@ -6,7 +6,7 @@
 
 - name: apache2 | Starting apache2
   service:
-    name: apache2
+    name: httpd
     state: started
 
 - name: Create apache2 SSL Directory 
