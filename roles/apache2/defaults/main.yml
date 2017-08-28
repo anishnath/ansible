@@ -8,5 +8,5 @@ apache2_service: httpd
 apache2_server_root: /etc/httpd
 apache2_listen_ip: "*"
 apache2_listen_port: 80
-apache2_listen_port_ssl: 443
+apache2_listen_port_ssl: 4443
 apache2_conf_path: /etc/httpd/conf.d
