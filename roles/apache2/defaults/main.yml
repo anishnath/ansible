@@ -11,3 +11,7 @@ apache2_listen_port: 80
 apache2_listen_port_ssl: 443
 apache2_conf_path: /etc/httpd/conf.d
 apache2_site_dir: /var/www/html
+
+### Web Application Security
+apache2_trace_enable: off
+apache2_httpOnly_enable:
