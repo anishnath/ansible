@@ -1,0 +1,24 @@
+---
+
+- name: Load the variables
+  include_vars: '{{ ansible_os_family }}.yml'
+
+- name: apache2 | Installing apache2
+  yum:
+    name: apache2
+    state: latest
+  when: ansible_os_family == 'RedHat'
+
+
+- name: Create apache2 User group
+  group: name='{{apache2_group}}' state=present
+
+- name : Creating apache2 Users and Group
+  user: name='{{ apache2_user }}' group='{{ apache2_group }}'
+
+- name: Configure the apache2  settings directory.
+  file: path=/etc/apache2 state=directory owner={{apache2_user}} group={{apache2_group}} mode=0755 recurse=yes
+
+- name: Configure the apache2 system user's home directory.
+  file: path={{apache2_install_home}} state=directory owner={{apache2_user}} group={{apache2_group}} mode=0755
+
