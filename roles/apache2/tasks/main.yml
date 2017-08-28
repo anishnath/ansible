@@ -32,6 +32,11 @@
     group: '{{ apache2_user }}'
     mode: 0755
 
+- name: Delete Default SSL.conf file
+  file:
+    path: '{{ apache2_conf_path }}/ssl.conf'
+    state: absent
+
 - name: Add apache vhosts configuration.
   template:
     src: "httpd.conf"
