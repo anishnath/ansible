@@ -2,5 +2,3 @@
 apache2_ports_configuration:
   - regexp: "^Listen "
     line: "Listen {{ apache2_listen_port }}"
-  - regexp: "^#?NameVirtualHost "
-    line: "NameVirtualHost {{ apache2_listen_ip }}:{{ apache2_listen_port }}"
