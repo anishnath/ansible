@@ -1,6 +1,6 @@
 ---
   - include_vars: users.yml
-  - include_vars: deleteusers.yml
+
   
   - name: Create users with home directory
     user: name={{ item.username }} shell=/bin/bash createhome=yes comment='Created by Ansible'
@@ -20,6 +20,8 @@
       state=present"
     when: '{{ item.use_sudo }} == True'
     with_items: '{{users}}'
+
+  - include_vars: deleteusers.yml
 
   - name: Deleting The users
     user: name={{ item.username }} state=absent remove=yes
