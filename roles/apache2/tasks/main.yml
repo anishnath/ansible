@@ -10,6 +10,10 @@
   notify:
           - restart apache2
 
+- name : Enable MOD_SSL
+  apache2_module: name=ssl state=present
+  notify:
+          - restart apache2
 
 - name: Configure httpd.
   lineinfile:
@@ -23,7 +27,7 @@
 - name: Add apache vhosts configuration.
   template:
     src: "httpd.conf"
-    dest: "{{ apache2_install_home }}/{{ ansible_hostname }}.conf"
+    dest: "{{ apache2_conf_path }}/{{ ansible_hostname }}.conf"
     owner: '{{ apache2_user }}'
     group: '{{ apache2_user }}'
     mode: 0644

@@ -4,9 +4,10 @@
   include_vars: '{{ ansible_os_family }}.yml'
 
 - name: apache2 | Installing apache2
-  yum:
-    name: httpd
-    state: latest
+  yum: pkg={{item}} state=installed
+  with_items:
+       - httpd
+       - mod_ssl
   when: ansible_os_family == 'RedHat'
 
 
