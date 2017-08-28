@@ -17,7 +17,7 @@
   user: name='{{ apache2_user }}' group='{{ apache2_group }}'
 
 - name: Configure the apache2  settings directory.
-  file: path=/etc/apache2 state=directory owner={{apache2_user}} group={{apache2_group}} mode=0755 recurse=yes
+  file: path={{ apache2_install_home }} state=directory owner={{apache2_user}} group={{apache2_group}} mode=0755 recurse=yes
 
 - name: Configure the apache2 system user's home directory.
   file: path={{apache2_install_home}} state=directory owner={{apache2_user}} group={{apache2_group}} mode=0755
