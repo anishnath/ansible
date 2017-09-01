@@ -5,6 +5,19 @@
 - name: Load the variables
   include_vars: '{{ ansible_os_family }}.yml' 
 
+- name: Create httpd Site Directory
+  file:
+    path: '{{ apache2_site_dir }}'
+    state: directory
+    owner: '{{ apache2_user }}'
+    group: '{{ apache2_user }}'
+    mode: 0755
+
+- name: Delete Default SSL.conf file
+  file:
+    path: '{{ apache2_conf_path }}/ssl.conf'
+    state: absent
+
 - name : Enable Mod_Rewrite
   apache2_module: name=rewrite state=present
   notify:
@@ -23,19 +36,6 @@
     state: present
   with_items: "{{ apache2_ports_configuration }}"
   notify: restart apache2
-
-- name: Create httpd Site Directory
-  file:
-    path: '{{ apache2_site_dir }}'
-    state: directory
-    owner: '{{ apache2_user }}'
-    group: '{{ apache2_user }}'
-    mode: 0755
-
-- name: Delete Default SSL.conf file
-  file:
-    path: '{{ apache2_conf_path }}/ssl.conf'
-    state: absent
 
 - name: Add apache vhosts configuration.
   template:
