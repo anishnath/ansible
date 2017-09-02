@@ -4,11 +4,6 @@
 - name: Load the variables
   include_vars: '{{ ansible_os_family }}.yml'
 
-- name: httpd | Starting apache2
-  service:
-    name: httpd
-    state: started
-
 - name: Create httpd SSL Directory
   file:
     path: '{{ apache2_install_home }}/ssl'
