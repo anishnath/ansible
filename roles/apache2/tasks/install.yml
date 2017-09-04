@@ -18,10 +18,10 @@
   when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'
 
 - name: Set web as default policy
-  command: firewall-cmd --set-default-zone=web
+  command: firewall-cmd --set-default-zone=dmz
 
 - name: Allow http/https
-  command: firewall-cmd --zone=web --permanent --add-service=http --add-service=https
+  command: firewall-cmd --zone=dmz --permanent --add-service=http --add-service=https
 
 - name: Create apache2 User group
   group: name='{{apache2_group}}' state=present
