@@ -1,0 +1,5 @@
+---
+- name : Security Group hardening
+  ec2_group: name=sg-d324d3a2 region=us-east-1
+    rules:
+       - proto=tcp from_port=443 to_port=443
