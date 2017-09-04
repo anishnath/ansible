@@ -3,7 +3,5 @@
 # ansible-playbook ec2.yml
 ---
 - hosts: all
-  become: yes
-  gather_facts: yes
   roles:
     - { role: ec2 }
