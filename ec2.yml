@@ -2,6 +2,8 @@
 #Author Anish Nath
 # ansible-playbook ec2.yml
 ---
-- hosts: all
+- hosts: localhost
+  connection: local
+  gather_facts: False
   roles:
     - { role: ec2 }
