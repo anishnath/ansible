@@ -1,0 +1,10 @@
+---
+- name: Activate gpg-check for yum-repos
+  replace:
+    dest: '{{ item }}'
+    regexp: '^\s*gpgcheck: 0'
+    replace: 'gpgcheck: 1'
+  with_flattened:
+    - '/etc/yum.conf'
+    - '{{ yum_repos.stdout_lines| default([]) }}'
+  when: ansible_os_family == 'RedHat'
