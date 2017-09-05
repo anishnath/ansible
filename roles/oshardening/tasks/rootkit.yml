@@ -1,0 +1,9 @@
+---
+- name: install the rkHunter and CheckrootKit version of ntpdate
+  package:
+    name: {{item}}
+    state: latest
+  with_items:
+    - rkhunter
+    - chkrootkit
+
