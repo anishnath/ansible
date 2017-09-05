@@ -1,8 +1,10 @@
 ---
-- name: install the rkHunter and CheckrootKit version of ntpdate
+- name: install the rkHunter,CheckrootKit, Clamv Antivirus version of ntpdate
   package:
     name: "{{ item }}"
     state: latest
+    force: yes
   with_items:
     - clamav
-
+    - rkhunter
+    - chkrootkit
