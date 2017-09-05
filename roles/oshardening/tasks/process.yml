@@ -1,0 +1,24 @@
+#Restrict Core Dumps
+---
+- name: create limits.d directory if it does not exist
+  file:
+    path: '/etc/security/limits.d'
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+    state: 'directory'
+
+- name: create limits.conf
+  template:
+    src: 'limits.conf'
+    dest: '/etc/security/limits.d/hardcore.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0440'
+
+
+- name: Configure System Ctrl to Restrict  Core Dumps
+  sysctl:
+    name: fs.suid_dumpable
+    value: 0
+    state: present
