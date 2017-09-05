@@ -10,11 +10,11 @@
     - chkrootkit
     - clamav-daemon
     - at
-   when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Debian'
 
 - name: Run Clamv Once in a Week
   at:
     command: "clamscan -i /tmp | mail anish@packtpub.com"
     count: 1
     units: weeks
-   when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Debian'
