@@ -7,7 +7,7 @@
   with_items:
     - clamav
     - rkhunter
-    - chkrootkitchkroot
+    - chkrootkit
     - clamav-daemon
 
 - name: Run Clamv Once in a Week
