@@ -1,5 +1,5 @@
 ---
-- name: install the rkHunter,CheckrootKit, Clamv Antivirus
+- name: Debian Family install the rkHunter,CheckrootKit, Clamv Antivirus
   package:
     name: "{{ item }}"
     state: latest
@@ -12,10 +12,10 @@
     - at
   when: ansible_os_family == 'Debian'
 
-- name: install the rkHunter,CheckrootKit, Clamv Antivirus
+- name: El6/7 install the rkHunter,CheckrootKit, Clamv Antivirus
   package:
     name: "{{ item }}"
-    state: latest
+    state: present
   with_items:
     - epel-release
     - clamav
