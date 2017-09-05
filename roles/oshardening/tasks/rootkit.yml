@@ -5,5 +5,4 @@
     state: latest
   with_items:
     - rkhunter
-    - chkrootkit
 
