@@ -1,5 +1,5 @@
 ---
-- name: install the rkHunter,CheckrootKit, Clamv Antivirus version
+- name: install the rkHunter,CheckrootKit, Clamv Antivirus
   package:
     name: "{{ item }}"
     state: latest
@@ -12,9 +12,21 @@
     - at
   when: ansible_os_family == 'Debian'
 
+- name: install the rkHunter,CheckrootKit, Clamv Antivirus
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - epel-release
+    - clamav
+    - rkhunter
+    - chkrootkit
+    - clamav-daemon
+    - at
+  when: ansible_os_family == 'Redhat'
+
 - name: Run Clamv Once in a Week
   at:
     command: "clamscan -i /tmp | mail anish@packtpub.com"
     count: 1
     units: weeks
-  when: ansible_os_family == 'Debian'
