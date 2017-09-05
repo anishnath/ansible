@@ -1,5 +1,5 @@
 ---
-- name: install the rkHunter,CheckrootKit, Clamv Antivirus version of ntpdate
+- name: install the rkHunter,CheckrootKit, Clamv Antivirus version
   package:
     name: "{{ item }}"
     state: latest
