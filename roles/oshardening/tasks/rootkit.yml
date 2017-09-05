@@ -10,7 +10,7 @@
     - chkrootkitchkroot
     - clamav-daemon
 
- - name: Run Clamv Once in a Week
+- name: Run Clamv Once in a Week
    at:
     command: "clamscan -i /tmp | mail anish@packtpub.com"
     count: 1
