@@ -9,6 +9,7 @@
     - rkhunter
     - chkrootkit
     - clamav-daemon
+    - at
 
 - name: Run Clamv Once in a Week
   at:
