@@ -3,5 +3,5 @@
   sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"
-    state:present
+    state: present
   with_items: "{{ harden }}"
