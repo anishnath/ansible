@@ -11,7 +11,7 @@
     - clamav-daemon
 
  - name: Run Clamv Once in a Week
-    at:
+   at:
     command: "clamscan -i /tmp | mail anish@packtpub.com"
     count: 1
     units: weeks
