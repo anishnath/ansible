@@ -2,3 +2,4 @@
 - include: sysctrl.yml
 - include: ssh-banner.yml
 - include: rootkit.yml
+- include: legacyservice.yml
