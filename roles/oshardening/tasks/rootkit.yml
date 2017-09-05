@@ -20,8 +20,6 @@
     - epel-release
     - clamav
     - rkhunter
-    - chkrootkit
-    - clamav-daemon
     - at
   when: ansible_os_family == 'RedHat'
 
