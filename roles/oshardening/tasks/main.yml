@@ -1,2 +1,3 @@
 ---
 - include: osharden.yml
+- include: ssh-banner.yml

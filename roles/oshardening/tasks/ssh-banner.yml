@@ -1,0 +1,9 @@
+---
+- name: Add banner information in sshd.conf
+  lineinfile: dest=/etc/ssh/sshd_config regexp='#Banner /etc/issue.net' line="Banner /etc/issue.net"
+
+- name: Update ssh banner
+  template: src=ssh-banner.conf dest=/etc/issue.net
+
+- name: Restart ssh
+  service: name=ssh state=restarted
