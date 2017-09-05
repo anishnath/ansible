@@ -1,0 +1,8 @@
+# To Run this Playbook Issue the command
+#Author Anish Nath
+# ansible-playbook harden.yml
+---
+- hosts: all
+  become: yes
+  roles:
+    - { role: osharden }
