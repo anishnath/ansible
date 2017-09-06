@@ -22,3 +22,18 @@
     name: fs.suid_dumpable
     value: 0
     state: present
+
+# protection against buffer overflow attacks.
+- name: ExecShield Configuration
+  sysctl:
+    name: kernel.exec-shield
+    value: 1
+    state: present
+
+
+# Randamozed Virtual Memory Placement
+- name: Randamozed Virtual Memory Placement
+  sysctl:
+    name: kernel.randomize_va_space
+    value: 2
+    state: present
