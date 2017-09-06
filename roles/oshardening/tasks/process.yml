@@ -24,14 +24,17 @@
     state: present
 
 # protection against buffer overflow attacks.
+#Ubuntu has NX protection enabled by default
 - name: ExecShield Configuration
   sysctl:
     name: kernel.exec-shield
     value: 1
     state: present
+  when: ansible_os_family == 'RedHat'
 
 
 # Randamozed Virtual Memory Placement
+#Ubuntu has NX protection enabled by default
 - name: Randamozed Virtual Memory Placement
   sysctl:
     name: kernel.randomize_va_space
