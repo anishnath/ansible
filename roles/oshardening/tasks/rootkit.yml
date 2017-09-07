@@ -24,12 +24,18 @@
   when: ansible_os_family == 'RedHat'
 
 # Run and Verify the Results
-- name: Run Clamscan
+- name: Run Clamscan Fire and Forgot
   command: clamscan -i /tmp
-  register: out
   async: 45
   poll: 0
-- debug: var=out.stdout_lines
+  register: clamscan
+
+- name: 'CLAMV  fire and'
+  async_status: jid={{ clamscan.ansible_job_id }}
+  register: job_result
+  until: job_result.finished
+  retries: 30
+- debug: var=job_result.stdout_lines
 
 # Schedule the CLam Scan and Send EMails
 - name: Run Clamv Once in a Week
