@@ -30,7 +30,7 @@
   poll: 0
   register: clamscan
 
-- name: 'CLAMV  fire and'
+- name: CLAMV  fire and Display Results
   async_status: jid={{ clamscan.ansible_job_id }}
   register: job_result
   until: job_result.finished
