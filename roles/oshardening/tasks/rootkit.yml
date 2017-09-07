@@ -23,6 +23,13 @@
     - at
   when: ansible_os_family == 'RedHat'
 
+# Run and Verify the Results
+- name: Run Clamscan
+  command: clamscan -i /tmp
+  register: out
+- debug: var=out.stdout_lines
+
+# Schedule the CLam Scan
 - name: Run Clamv Once in a Week
   at:
     command: "clamscan -i /tmp | mail anish@packtpub.com"
