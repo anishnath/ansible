@@ -45,7 +45,3 @@ harden:
    #Enable SYN Cookies
   - name: net.ipv4.tcp_syncookies
     value: 1
-
-    #Randomized Virtual Memory Region Placement
-  - name: kernel.randomize_va_space
-    value: 2
