@@ -27,9 +27,11 @@
 - name: Run Clamscan
   command: clamscan -i /tmp
   register: out
+  async: 45
+  poll: 0
 - debug: var=out.stdout_lines
 
-# Schedule the CLam Scan
+# Schedule the CLam Scan and Send EMails
 - name: Run Clamv Once in a Week
   at:
     command: "clamscan -i /tmp | mail anish@packtpub.com"
