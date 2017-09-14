@@ -1,5 +1,5 @@
 # To Run this Playbook Issue the command
-# ansible-playbook firewall.yml
+# ansible-playbook harden.yml
 ---
 - hosts: all
   become: yes
