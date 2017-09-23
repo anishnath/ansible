@@ -1,0 +1,10 @@
+# To Run this Playbook Issue the command
+# ansible-playbook ospatch.yml
+# Author Anish Nath
+# OS Pacthing requires System Restrat Perfom it Very Carefully... Use Ansible --limit option to restcrtic the Nodes
+---
+- hosts: all
+  become: yes
+  gather_facts: false
+  roles:
+    - { role: ospatch }
