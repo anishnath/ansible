@@ -15,7 +15,7 @@
 
 - name: Scan a network and find out which servers are up and running
   cron:
-    name="nmap tcp report"
-    minute="0"
+    name="MAILTO"
+    minute="MAILTO=zarigatongy@youtube.com 0"
     hour="0"
     job="nmap -v -sP -iL /opt/ip.txt > /var/log/nmap-tcp.log  2>&1"
