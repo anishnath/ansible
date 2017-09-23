@@ -2,7 +2,7 @@
 
 #Update kernel Package
 – name: Upgrade Kernel Package
-  yum: name=kernel state=latest
+  package: name=kernel state=latest
   async: 1000
   poll: 0
   register: yum_update
