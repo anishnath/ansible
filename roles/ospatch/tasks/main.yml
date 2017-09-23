@@ -2,15 +2,14 @@
 
 #Update kernel Package
 – name: Upgrade Kernel Package
-   yum: name=kernel state=latest
-   async: 1000
-   poll: 0
-   register: yum_sleeper
-   when: ansible_os_family == 'RedHat'
-   register: yum_update
+  yum: name=kernel state=latest
+  async: 1000
+  poll: 0
+  register: yum_update
+  when: ansible_os_family == 'RedHat'
 
 - name: 'YUM - check on fire and forget task'
-  async_status: jid={{ yum_sleeper.ansible_job_id }}
+  async_status: jid={{ yum_update.ansible_job_id }}
   register: job_result
   until: job_result.finished
   retries: 30
