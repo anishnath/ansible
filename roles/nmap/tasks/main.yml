@@ -1,5 +1,5 @@
 ---
-- include_vars: text.yml
+- include_vars: ip.yml
 
 - name: Remove Legacy Services Which is not Used in the Production System
   package:
