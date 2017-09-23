@@ -16,6 +16,6 @@
 - name: Scan a network and find out which servers are up and running
   cron:
     name="Nmap Scan "
-    minute="1"
+    minute="0"
     hour="0"
     job="nmap -v  {{ nmap_variable | default('-sP') }} -iL /opt/ip.txt > /var/log/nmap-tcp.log  2>&1"
