@@ -1,7 +1,7 @@
 ---
 - include_vars: ip.yml
 
-- name: Remove Legacy Services Which is not Used in the Production System
+- name: NMAP Installation
   package:
     name: "{{ item }}"
     state: present
@@ -18,4 +18,4 @@
     name="nmap tcp report"
     minute="0"
     hour="0"
-    job="nmap -v -sP -iL /opt/ip,txt > /var/log/nmap-tcp.log  2>&1"
+    job="nmap -v -sP -iL /opt/ip.txt > /var/log/nmap-tcp.log  2>&1"
