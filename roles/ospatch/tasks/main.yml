@@ -12,7 +12,7 @@
   async_status: jid={{ yum_update.ansible_job_id }}
   register: job_result
   until: job_result.finished
-  retries: 30
+  retries: 100
 
 #If you install the yum-utils package, you can use a command called needs-restarting
 # needs-restarting -r returns 0 if reboot is not needed, and 1 if it is, so it is perfect to use in a script.
@@ -33,7 +33,6 @@
   command: shutdown -r +1 “Rebooting System After Patching”
   async: 0
   poll: 0
-  when: reboot_required.stdout == “reboot_needed”
   register: reboot_started
   ignore_errors: true
-  when: ansible_os_family == 'RedHat'
+  when: ansible_os_family == 'RedHat' and reboot_required.stdout == “reboot_needed”
