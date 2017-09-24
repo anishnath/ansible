@@ -1,5 +1,4 @@
 ---
-
 #Update kernel Package
 - name: Upgrade Kernel Package
   yum: name=kernel state=latest
@@ -21,13 +20,11 @@
   yum: name=yum-utils state=latest
   when: ansible_os_family == 'RedHat'
 
-
 - name: check if reboot required after kernel update.
   shell: NEED_RESTARTING=$(needs-restarting -r); if [[ $NEED_RESTARTING != 0 ]]; then echo “reboot_needed”; else echo “reboot_not_needed”; fi
   ignore_errors: true
   register: reboot_required
   when: ansible_os_family == 'RedHat'
-
 
 - name: restart system
   command: shutdown -r +1 “Rebooting System After Patching”

@@ -1,7 +1,8 @@
 # To Run this Playbook Issue the command
 # ansible-playbook ospatch.yml
 # Author Anish Nath
-# OS Pacthing requires System Restrat Perfom it Very Carefully... Use Ansible --limit option to restcrtic the Nodes
+# OS Pacthing requires System Restrat Perfom it Very Carefully... 
+#Use Ansible --limit option to restrict the Nodes
 ---
 - hosts: all
   become: yes
