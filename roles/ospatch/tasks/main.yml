@@ -35,4 +35,4 @@
   poll: 0
   register: reboot_started
   ignore_errors: true
-  when: ansible_os_family == 'RedHat' and reboot_required.stdout == “reboot_needed”
+  when: ansible_os_family == 'RedHat' and reboot_required.stdout == 'reboot_needed'
